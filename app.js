@@ -127,6 +127,7 @@ const addIntern = async () => {
 
 const buildTeam = () => {
   const html = render(teamArray);
+  console.log(html);
 };
 
 createManager();
