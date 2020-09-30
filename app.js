@@ -57,10 +57,27 @@ const questionsArray = {
     },
   ],
   intern: [
-      {
-          
-      }
-  ]
+    {
+      type: "input",
+      message: "What is the intern's name?",
+      name: "name",
+    },
+    {
+      type: "input",
+      message: "What is the intern's id number?",
+      name: "id",
+    },
+    {
+      type: "input",
+      message: "What is the intern's email address?",
+      name: "email",
+    },
+    {
+      type: "input",
+      message: "What school is the intern from?",
+      name: "school",
+    },
+  ],
   addTeamMember: [
     {
       type: "list",
@@ -69,8 +86,7 @@ const questionsArray = {
       choices: ["Engineer", "Intern", "No"],
     },
   ],
-}
-
+};
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
