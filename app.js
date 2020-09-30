@@ -88,6 +88,15 @@ const questionsArray = {
   ],
 };
 
+const creatManager = async () => {
+    const { name, id, email, officeNumber } = await inquirer.prompt(
+      questionsArray.manager
+    );
+    const manager = new Manager(name, id, email, officeNumber);
+    teamArray.push(manager);
+    addTeamMember();
+  };
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
