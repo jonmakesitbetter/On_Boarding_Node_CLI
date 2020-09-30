@@ -97,6 +97,20 @@ const creatManager = async () => {
     addTeamMember();
   };
 
+  const addTeamMember = async () => {
+    const { teamMember } = await inquirer.prompt(questionsArray.addTeamMember);
+    switch (teamMember) {
+      case "Engineer":
+        addEngineer();
+        break;
+      case "Intern":
+        addIntern();
+        break;
+      default:
+        buildTeam();
+    }
+  };
+  
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
