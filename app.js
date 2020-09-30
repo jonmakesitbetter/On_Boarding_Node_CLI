@@ -115,9 +115,15 @@ const addEngineer = async () => {
     const { name, id, email, github } = await inquirer.prompt(questionsArray.engineer);
     const engineer = new Engineer(name, id, email, github);
     teamArray.push(engineer);
+    addTeamMember();
 };
 
-const addIntern = () => {};
+const addIntern = async () => {
+    const { name, id, email, school } = await inquirer.prompt(questionsArray.intern);
+    const intern = new Intern(name, id, email, school);
+    teamArray.push(Intern);
+    addTeamMember();
+};
 
 const buildTeam = () => {
   const html = render(teamArray);
