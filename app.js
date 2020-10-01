@@ -15,22 +15,22 @@ const questionsArray = {
   manager: [
     {
       type: "input",
-      message: "What is your name?",
+      message: "What is your manager's name?",
       name: "name",
     },
     {
       type: "input",
-      message: "What is your id number?",
+      message: "What is your manager's id number?",
       name: "id",
     },
     {
       type: "input",
-      message: "What is your email address?",
+      message: "What is your manager's email address?",
       name: "email",
     },
     {
       type: "input",
-      message: "What is your office number?",
+      message: "What is your manager's office number?",
       name: "officeNumber",
     },
   ],
@@ -112,22 +112,30 @@ const addTeamMember = async () => {
 };
 
 const addEngineer = async () => {
-    const { name, id, email, github } = await inquirer.prompt(questionsArray.engineer);
-    const engineer = new Engineer(name, id, email, github);
-    teamArray.push(engineer);
-    addTeamMember();
+  const { name, id, email, github } = await inquirer.prompt(
+    questionsArray.engineer
+  );
+  const engineer = new Engineer(name, id, email, github);
+  teamArray.push(engineer);
+  addTeamMember();
 };
 
 const addIntern = async () => {
-    const { name, id, email, school } = await inquirer.prompt(questionsArray.intern);
-    const intern = new Intern(name, id, email, school);
-    teamArray.push(Intern);
-    addTeamMember();
+  const { name, id, email, school } = await inquirer.prompt(
+    questionsArray.intern
+  );
+  const intern = new Intern(name, id, email, school);
+  teamArray.push(intern);
+  addTeamMember();
 };
 
 const buildTeam = () => {
   const html = render(teamArray);
   console.log(html);
+  fs.writeFile(outputPath, html, function (err) {
+    if (err) throw err;
+    console.log("Successfully created html file");
+  });
 };
 
 createManager();
